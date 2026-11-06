@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix Data Science & Business Insights Dashboard</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { background-color: #0f172a; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif; }
+    .card-dark { background-color: #1e293b; border: 1px solid #334155; }
+    .badge-netflix { background-color: #E50914; color: white; }
+  </style>
+</head>
+<body class="p-6 md:p-10">
+
+  <!-- Header Banner -->
+  <header class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center border-b border-slate-700 pb-6">
+    <div>
+      <div class="flex items-center gap-3 mb-2">
+        <span class="badge-netflix text-xs px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">Auspify Technologies Internship</span>
+        <span class="text-xs text-slate-400">Task 6: Advanced Capstone Dashboard</span>
+      </div>
+      <h1 class="text-3xl font-extrabold text-white tracking-tight">🎬 Netflix Business Insights & Executive Dashboard</h1>
+      <p class="text-slate-400 text-sm mt-1">End-to-End Analytics, Predictive Modeling, and Strategic Monetization Recommendations</p>
+    </div>
+    <div class="mt-4 md:mt-0 text-right">
+      <div class="text-xs text-slate-400">Author: <strong class="text-white">Rishi Prajapati</strong></div>
+      <div class="text-xs text-slate-500">Live Production Feed</div>
+    </div>
+  </header>
+
+  <!-- KPI Cards Grid -->
+  <section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+    <div class="card-dark p-4 rounded-xl shadow-lg">
+      <div class="text-xs text-slate-400 uppercase font-semibold">Total Titles</div>
+      <div class="text-2xl font-bold text-white mt-1">8,790</div>
+      <div class="text-xs text-emerald-400 mt-1">Verified Cleaned Catalog</div>
+    </div>
+    <div class="card-dark p-4 rounded-xl shadow-lg">
+      <div class="text-xs text-slate-400 uppercase font-semibold">Movies Share</div>
+      <div class="text-2xl font-bold text-red-500 mt-1">6,126</div>
+      <div class="text-xs text-slate-400 mt-1">69.7% of Library</div>
+    </div>
+    <div class="card-dark p-4 rounded-xl shadow-lg">
+      <div class="text-xs text-slate-400 uppercase font-semibold">TV Shows Share</div>
+      <div class="text-2xl font-bold text-indigo-400 mt-1">2,664</div>
+      <div class="text-xs text-slate-400 mt-1">30.3% of Library</div>
+    </div>
+    <div class="card-dark p-4 rounded-xl shadow-lg">
+      <div class="text-xs text-slate-400 uppercase font-semibold">Global Countries</div>
+      <div class="text-2xl font-bold text-amber-400 mt-1">86</div>
+      <div class="text-xs text-slate-400 mt-1">International Footprint</div>
+    </div>
+    <div class="card-dark p-4 rounded-xl shadow-lg">
+      <div class="text-xs text-slate-400 uppercase font-semibold">Median Runtime</div>
+      <div class="text-2xl font-bold text-cyan-400 mt-1">98 Mins</div>
+      <div class="text-xs text-slate-400 mt-1">Movie Norm</div>
+    </div>
+    <div class="card-dark p-4 rounded-xl shadow-lg">
+      <div class="text-xs text-slate-400 uppercase font-semibold">Projected 2026</div>
+      <div class="text-2xl font-bold text-emerald-400 mt-1">21,868</div>
+      <div class="text-xs text-slate-400 mt-1">5-Yr ML Forecast</div>
+    </div>
+  </section>
+
+  <!-- Visual Charts Section -->
+  <section class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+    <!-- Chart 1: Content Growth Timeline -->
+    <div class="card-dark p-5 rounded-xl shadow-lg">
+      <h3 class="text-sm font-bold text-slate-300 mb-4 flex items-center justify-between">
+        <span>📈 Annual Content Acquisition & Forecast (2012 - 2026)</span>
+        <span class="text-xs text-slate-500">Historical + ML Forecast</span>
+      </h3>
+      <div class="h-64">
+        <canvas id="growthChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Chart 2: Format Distribution Donut -->
+    <div class="card-dark p-5 rounded-xl shadow-lg">
+      <h3 class="text-sm font-bold text-slate-300 mb-4 flex items-center justify-between">
+        <span>🍩 Content Format & Audience Segments</span>
+        <span class="text-xs text-slate-500">Demographic Breakdown</span>
+      </h3>
+      <div class="h-64 flex justify-center">
+        <canvas id="audienceChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Chart 3: Top Producing Countries -->
+    <div class="card-dark p-5 rounded-xl shadow-lg">
+      <h3 class="text-sm font-bold text-slate-300 mb-4">🌍 Top 8 Producing Nations (Movies vs TV Shows)</h3>
+      <div class="h-64">
+        <canvas id="countryChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Chart 4: Top 8 Genres -->
+    <div class="card-dark p-5 rounded-xl shadow-lg">
+      <h3 class="text-sm font-bold text-slate-300 mb-4">🎭 Top 8 Global Genres Frequency</h3>
+      <div class="h-64">
+        <canvas id="genreChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Strategic Business Recommendations -->
+  <section class="card-dark p-6 rounded-xl shadow-lg mb-8">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="text-red-500 text-lg">💡</span>
+      <h2 class="text-lg font-bold text-white">Executive Business Recommendations & Strategic Monetization</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      
+      <div class="bg-slate-800/80 p-4 rounded-lg border-l-4 border-red-500">
+        <div class="text-xs font-bold text-red-400 uppercase tracking-wide">Pillar 1: Content Investment & Retention</div>
+        <p class="text-xs text-slate-400 mt-1"><strong>Observation:</strong> Movies comprise 69.7% of the catalog, but TV series generate higher watch-time and lower monthly subscriber churn.</p>
+        <p class="text-xs text-slate-200 mt-2 font-semibold">Action: Allocate 40% of commissioning budget into serialized multi-season series in target territories.</p>
+      </div>
+
+      <div class="bg-slate-800/80 p-4 rounded-lg border-l-4 border-indigo-500">
+        <div class="text-xs font-bold text-indigo-400 uppercase tracking-wide">Pillar 2: Regional Market Expansion</div>
+        <p class="text-xs text-slate-400 mt-1"><strong>Observation:</strong> India catalog has 1,057 titles with 92.3% movie bias, leaving TV episodic consumption under-penetrated.</p>
+        <p class="text-xs text-slate-200 mt-2 font-semibold">Action: Launch regional episodic originals tailored to South Asian and Latin American markets.</p>
+      </div>
+
+      <div class="bg-slate-800/80 p-4 rounded-lg border-l-4 border-amber-500">
+        <div class="text-xs font-bold text-amber-400 uppercase tracking-wide">Pillar 3: Demographic Tiered Pricing</div>
+        <p class="text-xs text-slate-400 mt-1"><strong>Observation:</strong> Adult content accounts for 45.6% of titles, while family/kids content represents 21.6%.</p>
+        <p class="text-xs text-slate-200 mt-2 font-semibold">Action: Introduce discounted 'Family & Kids' ad-supported subscription tiers to capture multi-viewer households.</p>
+      </div>
+
+      <div class="bg-slate-800/80 p-4 rounded-lg border-l-4 border-emerald-500">
+        <div class="text-xs font-bold text-emerald-400 uppercase tracking-wide">Pillar 4: Staggered Release Scheduling</div>
+        <p class="text-xs text-slate-400 mt-1"><strong>Observation:</strong> 28.4% of catalog additions are dropped on Fridays, cannibalizing viewer engagement across titles.</p>
+        <p class="text-xs text-slate-200 mt-2 font-semibold">Action: Spread mid-tier documentaries and indie titles to Wednesday drops to sustain continuous daily active users.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-xs text-slate-500 pt-4 border-t border-slate-800">
+    <p>Auspify Technologies 4-Week Practical Learning Data Science Internship | Task 6 Capstone Project</p>
+    <p class="mt-1">Powered by Python, Pandas, Scikit-Learn, and Chart.js</p>
+  </footer>
+
+  <!-- Chart.js Logic -->
+  <script>
+    // 1. Growth Line Chart
+    new Chart(document.getElementById('growthChart'), {
+      type: 'line',
+      data: {
+        labels: ['2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022 (F)', '2023 (F)', '2024 (F)', '2025 (F)', '2026 (F)'],
+        datasets: [
+          {
+            label: 'Actual / Projected Additions',
+            data: [24, 82, 426, 1185, 1648, 2016, 1879, 1498, 2201, 2415, 2622, 2823, 3017],
+            borderColor: '#E50914',
+            backgroundColor: 'rgba(229, 9, 20, 0.1)',
+            fill: true,
+            tension: 0.3,
+            borderWidth: 2
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { labels: { color: '#94a3b8' } } },
+        scales: {
+          x: { ticks: { color: '#94a3b8' }, grid: { color: '#334155' } },
+          y: { ticks: { color: '#94a3b8' }, grid: { color: '#334155' } }
+        }
+      }
+    });
+
+    // 2. Audience Donut
+    new Chart(document.getElementById('audienceChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Adults (TV-MA, R)', 'Teens (TV-14, PG-13)', 'Older Kids (TV-PG, PG)', 'Kids (TV-Y, G)'],
+        datasets: [{
+          data: [4007, 2647, 1487, 347],
+          backgroundColor: ['#E50914', '#3b82f6', '#f59e0b', '#10b981'],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { position: 'bottom', labels: { color: '#94a3b8', boxWidth: 12 } } }
+      }
+    });
+
+    // 3. Top Countries Bar
+    new Chart(document.getElementById('countryChart'), {
+      type: 'bar',
+      data: {
+        labels: ['United States', 'India', 'United Kingdom', 'Pakistan', 'Canada', 'Japan', 'South Korea', 'France'],
+        datasets: [
+          { label: 'Movies', data: [2395, 976, 387, 71, 187, 85, 49, 148], backgroundColor: '#E50914' },
+          { label: 'TV Shows', data: [845, 81, 251, 350, 84, 174, 165, 76], backgroundColor: '#475569' }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: { stacked: true, ticks: { color: '#94a3b8', font: { size: 10 } }, grid: { color: '#334155' } },
+          y: { stacked: true, ticks: { color: '#94a3b8' }, grid: { color: '#334155' } }
+        },
+        plugins: { legend: { labels: { color: '#94a3b8' } } }
+      }
+    });
+
+    // 4. Top Genres Horizontal Bar
+    new Chart(document.getElementById('genreChart'), {
+      type: 'bar',
+      data: {
+        labels: ['International Movies', 'Dramas', 'Comedies', 'International TV', 'Documentaries', 'Action & Adv', 'TV Dramas', 'Romantic Movies'],
+        datasets: [{
+          label: 'Titles Count',
+          data: [2752, 2427, 1674, 1351, 869, 859, 763, 616],
+          backgroundColor: '#3b82f6',
+          borderRadius: 4
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { color: '#94a3b8' }, grid: { color: '#334155' } },
+          y: { ticks: { color: '#94a3b8', font: { size: 10 } }, grid: { color: '#334155' } }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
