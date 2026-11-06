@@ -1,0 +1,163 @@
+{
+    "title": "Netflix Global Content Strategy & Business Insights Report",
+    "program": "Auspify Technologies Data Science Internship",
+    "task_name": "Task 6: Data Science Business Insights Dashboard",
+    "author": "Rishi Prajapati",
+    "executive_summary": "This capstone project synthesizes end-to-end data analytics, machine learning classification, recommendation intelligence, and statistical forecasting into a strategic decision-making dashboard. Key strategic imperatives focus on increasing multi-season serial productions, expanding localized Asian and Latin American episodic content, and implementing family-oriented ad-tier monetization.",
+    "key_performance_indicators": {
+        "total_titles": 8790,
+        "movies_count": 6126,
+        "tv_shows_count": 2664,
+        "global_countries": 86,
+        "median_movie_minutes": 98,
+        "projected_library_2026": 21868
+    },
+    "content_mix_analysis": {
+        "Movies": 6126,
+        "TV_Shows": 2664,
+        "Movie_Percentage": 69.7,
+        "TV_Percentage": 30.3
+    },
+    "top_content_producers": [
+        {
+            "country": "United States",
+            "movies": 2395,
+            "tv_shows": 845,
+            "total": 3240
+        },
+        {
+            "country": "India",
+            "movies": 976,
+            "tv_shows": 81,
+            "total": 1057
+        },
+        {
+            "country": "United Kingdom",
+            "movies": 387,
+            "tv_shows": 251,
+            "total": 638
+        },
+        {
+            "country": "Pakistan",
+            "movies": 71,
+            "tv_shows": 350,
+            "total": 421
+        },
+        {
+            "country": "Canada",
+            "movies": 187,
+            "tv_shows": 84,
+            "total": 271
+        },
+        {
+            "country": "Japan",
+            "movies": 87,
+            "tv_shows": 172,
+            "total": 259
+        },
+        {
+            "country": "South Korea",
+            "movies": 49,
+            "tv_shows": 165,
+            "total": 214
+        },
+        {
+            "country": "France",
+            "movies": 148,
+            "tv_shows": 65,
+            "total": 213
+        },
+        {
+            "country": "Spain",
+            "movies": 129,
+            "tv_shows": 53,
+            "total": 182
+        },
+        {
+            "country": "Mexico",
+            "movies": 90,
+            "tv_shows": 48,
+            "total": 138
+        }
+    ],
+    "top_demographics": [
+        {
+            "segment": "Adults",
+            "count": 4007
+        },
+        {
+            "segment": "Teens",
+            "count": 2647
+        },
+        {
+            "segment": "Older Kids",
+            "count": 1487
+        },
+        {
+            "segment": "Kids",
+            "count": 347
+        },
+        {
+            "segment": "Other",
+            "count": 220
+        },
+        {
+            "segment": "Unrated",
+            "count": 82
+        }
+    ],
+    "growth_projections": [
+        {
+            "year": 2022,
+            "predicted_total": 2201,
+            "predicted_movies": 1485,
+            "predicted_tv": 716
+        },
+        {
+            "year": 2023,
+            "predicted_total": 2415,
+            "predicted_movies": 1610,
+            "predicted_tv": 805
+        },
+        {
+            "year": 2024,
+            "predicted_total": 2622,
+            "predicted_movies": 1727,
+            "predicted_tv": 896
+        },
+        {
+            "year": 2025,
+            "predicted_total": 2823,
+            "predicted_movies": 1835,
+            "predicted_tv": 988
+        },
+        {
+            "year": 2026,
+            "predicted_total": 3017,
+            "predicted_movies": 1935,
+            "predicted_tv": 1081
+        }
+    ],
+    "strategic_pillars": [
+        {
+            "pillar": "Content Investment & Formats",
+            "observation": "Movies comprise 69.7% of catalog, but TV shows offer significantly higher viewer retention & lifetime subscriber value.",
+            "action": "Increase multi-season TV show commissions to 40% of annual budget to reduce subscriber churn."
+        },
+        {
+            "pillar": "Geographical Expansion",
+            "observation": "India has 1,057 titles with 92.3% movie concentration; US library is mature.",
+            "action": "Produce localized serialized regional series in emerging markets (India, Latin America) where series penetration is under-indexed."
+        },
+        {
+            "pillar": "Demographic Monetization",
+            "observation": "Adult-rated titles represent 45.6% of library; Family/Kids titles account for 21.6%.",
+            "action": "Introduce tiered ad-supported family bundles to monetize the underserved Under-14 age demographic."
+        },
+        {
+            "pillar": "Platform Release Strategy",
+            "observation": "28.4% of content is added on Fridays, causing internal competition among new releases.",
+            "action": "Adopt staggered releases (mid-week drops on Wednesdays for niche documentaries/indies) to maximize viewer attention."
+        }
+    ]
+}
