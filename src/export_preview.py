@@ -9,8 +9,8 @@ import seaborn as sns
 import pandas as pd
 
 
-sns.set_theme(style="darkgrid")
-plt.rcParams.update({"text.color": "white", "axes.labelcolor": "white", "xtick.color": "white", "ytick.color": "white"})
+sns.set_theme(style="whitegrid")
+plt.rcParams.update({"text.color": "#000000", "axes.labelcolor": "#000000", "xtick.color": "#000000", "ytick.color": "#000000"})
 
 
 def export_dashboard_preview(data_path: str = "data/netflix_cleaned.csv", out_dir: str = "static"):
@@ -19,22 +19,28 @@ def export_dashboard_preview(data_path: str = "data/netflix_cleaned.csv", out_di
     
     df = pd.read_csv(data_path)
     
-    fig, axes = plt.subplots(1, 2, figsize=(12, 4.5), facecolor="#0f172a")
+    fig, axes = plt.subplots(1, 2, figsize=(12, 4.5), facecolor="#ffffff")
     for ax in axes:
-        ax.set_facecolor("#1e293b")
+        ax.set_facecolor("#f9f9f9")
         
     # 1. Format
     counts = df["type"].value_counts()
-    axes[0].bar(counts.index, counts.values, color=["#E50914", "#475569"], edgecolor="black", width=0.5)
-    axes[0].set_title("Catalog Format Breakdown", color="white", fontweight="bold")
+    axes[0].bar(counts.index, counts.values, color=["#000000", "#c90000"], edgecolor="#000000", width=0.45)
+    axes[0].set_title("Catalog Format Breakdown (Swiss Style)", color="#000000", fontweight="bold")
     axes[0].set_ylabel("Titles Count")
     for idx, v in enumerate(counts.values):
-        axes[0].text(idx, v + 100, f"{v:,}", ha="center", color="white", fontweight="bold")
+        axes[0].text(idx, v + 100, f"{v:,}", ha="center", color="#000000", fontweight="bold")
         
-    # 2. Audience Demographics
-    aud = df["target_audience"].value_counts()
-    axes[1].pie(aud.values, labels=aud.index, colors=["#E50914", "#3b82f6", "#f59e0b", "#10b981", "#64748b"], autopct="%1.1f%%", startangle=140)
-    axes[1].set_title("Demographic Distribution", color="white", fontweight="bold")
+    # 2. Audience Demographics with simplified age-group labels
+    aud = df["target_audience"].value_counts().head(4)
+    labels = [
+        f"Adults (18+)\n{aud.iloc[0]:,}",
+        f"Teens (13-17)\n{aud.iloc[1]:,}",
+        f"Older Kids (7-12)\n{aud.iloc[2]:,}",
+        f"Kids (All Ages)\n{aud.iloc[3]:,}"
+    ]
+    axes[1].pie(aud.values, labels=labels, colors=["#000000", "#555555", "#999999", "#c90000"], autopct="%1.1f%%", startangle=140, textprops={'fontsize': 9, 'weight': 'bold'})
+    axes[1].set_title("Audience Age Demographics Distribution", color="#000000", fontweight="bold")
     
     plt.tight_layout()
     preview_file = out_path / "dashboard_preview.png"

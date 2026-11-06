@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" fill="#000000"/>
+  <!-- Elegant geometric Netflix Ribbon 'N' in vivid red with Swiss angular precision -->
+  <path d="M14 10 L24 10 L24 54 L14 54 Z" fill="#e50914"/>
+  <path d="M40 10 L50 10 L50 54 L40 54 Z" fill="#e50914"/>
+  <path d="M14 10 L40 54 L50 54 L24 10 Z" fill="#b80008"/>
+  <!-- Red accent signal square -->
+  <rect x="52" y="10" width="4" height="4" fill="#ff2e3b"/>
+</svg>
